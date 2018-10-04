@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        {%for task in tasks%}
+        <p>id = {{task["id"]}}</p>
+        <p>title = {{task["title"]}}</p> 
+        <p>set new </p>
+        <p>task date = {{task["taskdate"]}}</p>
+        <p>body of the task = {{task["full"]}}</p>
+        {%endfor%}
+    </div>
+    <form action="/get" method="post">
+        {%for task in tasks%}
+        <input type="text" placeholder = "{{task['title']}}" name = '{{task["id"]}}' value = '{{form[id]}}'>
+        <input type="submit">
+        {%endfor%}
+        <h1>no</h1>
+        {% for task in tasks %}
+        {% include "./index.html" %}
+        {{modefy_task(task["id"],row= "title", new_data=form[str(task["id"])])}}
+        yes;
+        {% else %}
+        <h1>is it working</h1>
+        {% endif %}
+
+
+        {% endfor %}
+    </form>
+    {{form}}
+</body>
+</html>

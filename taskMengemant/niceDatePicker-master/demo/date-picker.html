@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>date-picker-demo</title>
+    <link rel="stylesheet" href="../nice-date-picker.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="../nice-date-picker.js"></script>
+</head>
+<body>
+<div class="container">
+    <div id="calendar1">
+        <div id="calendar1-wrapper1"></div>
+        <span class="calendar1-msg"></span>
+    </div>
+    <div id="calendar2">
+        <div id="calendar1-wrapper2"></div>
+        <span class="calendar2-msg"></span>
+        <div><h3>the day taht you peak</h3>  </div>
+        <span class="date">hello</span>
+        <button id="btn">click me</button>
+    </div>
+
+</div>
+<script>
+    new niceDatePicker({
+        dom:document.getElementById('calendar1-wrapper1'),
+        onClickDate:function(date){
+            document.querySelector('.calendar1-msg').innerHTML='calendar1 your selected '+date;
+        }
+    });
+    
+    new niceDatePicker({
+        dom:document.getElementById('calendar1-wrapper2'),
+        year:2017,
+        month:5,
+        mode:'en',
+        onClickDate:function(date){
+            document.querySelector('.calendar2-msg').innerHTML='calendar2 your selected '+date;
+        }
+    })
+    let date = document.querySelector(".date");
+    let btn = document.querySelector("#btn");
+    btn.addEventListener(("click"), (()=>{
+        let c2m = document.querySelector(".calendar2-msg").textContent;
+        console.log(c2m)
+    }))
+    console.log(date)
+    ;
+</script>
+</body>
+</html>

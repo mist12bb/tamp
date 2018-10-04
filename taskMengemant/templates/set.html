@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/set" method="post">
+        <input type="text" name="amount" value="{{form['amount']}}">
+        <input type="text" name="ack" value="{{form['ack']}}">
+        <input type="text" name="form_" value="{{form['form_']}}">
+        <input type="submit">
+        {% if  form["amount"]%}
+        <p style = "opacity: 0">
+            {{set(form["amount"], form["ack"], form["form_"], date)}}
+        </p>
+        <p>
+
+            Gangultion, you just set a new entering!!!
+            
+        </p>
+        {% else %}
+        {% endif %}
+    </form>
+</body>
+
+</html>
